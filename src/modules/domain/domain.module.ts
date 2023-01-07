@@ -2,8 +2,10 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
 import { TypeOrmModule, TypeOrmModuleAsyncOptions } from '@nestjs/typeorm';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
+import { ApolloError } from 'apollo-server-express';
 
 @Module({
   imports: [
@@ -31,9 +33,10 @@ import { join } from 'path';
             } as TypeOrmModuleAsyncOptions;
         }
     }),
-    GraphQLModule.forRoot({
+    GraphQLModule.forRoot<ApolloDriverConfig>({
         playground: true,
         typePaths: ['./**/*.graphql'],
+        driver: ApolloDriver,
         context: ({req}) => ({headers: req.headers}),
         definitions: {
             path:  join(process.cwd(), 'src/graphql.schema.ts'),
