@@ -1,6 +1,8 @@
-import { Args, Mutation, Query } from "@nestjs/graphql";
+import { Args, Mutation, Query, Resolver } from "@nestjs/graphql";
+import { PokemonEntity } from "../entity/pokemon.entity";
 import { PokemonService } from "./pokemon.service";
 
+@Resolver(of => PokemonEntity)
 export class  PokemonResolver{
     constructor(private readonly pokemonService: PokemonService){}
 
