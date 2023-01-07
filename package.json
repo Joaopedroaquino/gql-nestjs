@@ -21,6 +21,8 @@
     "prettier:write": "./node_modules/.bin/prettier --write \"**/*.{js,json,ts,yml,yaml}\"",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "lint:fix": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "check-engines": "node node_modules/fbjs-scripts/node/check-dev-engines.js package.json",
+
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
