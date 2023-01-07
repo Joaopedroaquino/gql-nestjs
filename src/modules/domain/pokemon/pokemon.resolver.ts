@@ -23,6 +23,13 @@ export class  PokemonResolver{
     }
 
 
+    @Mutation()
+    async create(@Args('name') name, @Args('type') type){
+        return await this.pokemonService.createPokemon({name, type});
+    }
+
+
+
 
 
 }
