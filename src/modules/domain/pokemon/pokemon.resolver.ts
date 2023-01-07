@@ -1,4 +1,4 @@
-import { Args, Query } from "@nestjs/graphql";
+import { Args, Mutation, Query } from "@nestjs/graphql";
 import { PokemonService } from "./pokemon.service";
 
 export class  PokemonResolver{
@@ -15,6 +15,13 @@ export class  PokemonResolver{
         return await this.pokemonService.show(id)
 
     }
+
+    @Mutation()
+    async delete(@Args('id') id){
+        await this.pokemonService.deletePokemon(id);
+        return {delete: true}
+    }
+
 
 
 
