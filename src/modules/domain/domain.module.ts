@@ -28,7 +28,7 @@ import { ApolloError } from 'apollo-server-express';
                 type: 'postgres',
                 url: configService.get('DATABASE_URL'),
                 entities: [__dirname + '/**/**.entity{.ts,.js'], 
-                synchronize: false
+                synchronize: true
                
             } as TypeOrmModuleAsyncOptions;
         }
