@@ -1,4 +1,4 @@
-import { Query } from "@nestjs/graphql";
+import { Args, Query } from "@nestjs/graphql";
 import { PokemonService } from "./pokemon.service";
 
 export class  PokemonResolver{
@@ -10,5 +10,12 @@ export class  PokemonResolver{
 
     }
 
-    
+    @Query()
+    async pokemon(@Args('id') id: string){
+        return await this.pokemonService.show(id)
+
+    }
+
+
+
 }
