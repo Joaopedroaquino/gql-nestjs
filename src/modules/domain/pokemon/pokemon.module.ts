@@ -6,7 +6,9 @@ import { PokemonService } from "./pokemon.service";
 
 @Module({
     imports:[TypeOrmModule.forFeature([ PokemonEntity])],
-    providers:[PokemonService, PokemonResolver]
+    providers:[PokemonService, PokemonResolver],
+    exports:[PokemonService, PokemonResolver]
+
 
 })
 
