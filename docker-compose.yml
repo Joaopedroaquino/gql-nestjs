@@ -4,7 +4,6 @@ services:
     build: .
     volumes:
       - .:/app
-      - ~/.npmrc/:/root/.npmrc
   postgres:
     image: postgres
     restart: unless-stopped 
