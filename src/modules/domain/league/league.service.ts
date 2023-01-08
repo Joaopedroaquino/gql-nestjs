@@ -4,7 +4,7 @@ import { Repository } from "typeorm";
 import { LeagueEntity } from "../entity/league.entity";
 
 @Injectable()
-export class PokemonService {
+export class LeagueService {
     constructor(@InjectRepository(LeagueEntity)private readonly leagueRepository: Repository<LeagueEntity>){ }
 
     async createLeague(data: any){
@@ -16,7 +16,7 @@ export class PokemonService {
      return savedPokemon
     }
 
-    async deletePokemon(id: string){
+    async deleteLeague(id: string){
         const pokemon = await this.leagueRepository.findOne({where:{ id
 
         }});
@@ -24,7 +24,7 @@ export class PokemonService {
         return pokemon
     }
 
-    async updatePokemon(id: string, data: any){
+    async updateLeague(id: string, data: any){
         const pokemon = await this.leagueRepository.findOne({where:{ id
 
         }})
@@ -43,7 +43,7 @@ export class PokemonService {
 
     }
 
-    async getAllPokemon(){
+    async getAllLeague(){
         return await this.leagueRepository.find({})
     }
 
